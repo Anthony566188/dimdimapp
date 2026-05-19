@@ -1,0 +1,14 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+publish/
+
+## Docker
+.dockerignore
+
+## OS
+.DS_Store
+Thumbs.db
