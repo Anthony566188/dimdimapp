@@ -197,7 +197,7 @@ Você deve ver **dois containers** rodando: `app-RM566526` e `db-RM566526`.
 
 ### PARTE 9 — Liberar a porta 8080 no Azure
 
-1. Acesse o **Portal do Azure** → sua VM → **Configurações de rede**
+1. Acesse o **Portal do Azure** → sua VM → **Rede** → **Configurações de rede**
 2. Clique em **Adicionar regra de porta de entrada**
 3. Preencha:
    - **Intervalo de portas de destino**: `8080`
@@ -209,40 +209,38 @@ Você deve ver **dois containers** rodando: `app-RM566526` e `db-RM566526`.
 
 ### PARTE 10 — Testar a API
 
-Substitua `IP-DA-VM` pelo IP público da sua VM no Azure.
-
 #### Abrir o Swagger (interface visual da API)
-Acesse no navegador: `http://IP-DA-VM:8080/swagger`
+Acesse no navegador: `http://68.155.146.238:8080/swagger`
 
 #### Testar via terminal (curl):
 
 **CREATE — Criar uma conta:**
 ```bash
-curl -X POST http://IP-DA-VM:8080/contas \
+curl -X POST http://68.155.146.238:8080/contas \
   -H "Content-Type: application/json" \
   -d '{"titular": "Ana Lima", "saldo": 2500.00}'
 ```
 
 **READ ALL — Listar todas as contas:**
 ```bash
-curl http://IP-DA-VM:8080/contas
+curl http://68.155.146.238:8080/contas
 ```
 
 **READ ONE — Buscar conta por ID:**
 ```bash
-curl http://IP-DA-VM:8080/contas/1
+curl http://68.155.146.238:8080/contas/1
 ```
 
 **UPDATE — Atualizar uma conta:**
 ```bash
-curl -X PUT http://IP-DA-VM:8080/contas/1 \
+curl -X PUT http://68.155.146.238:8080/contas/1 \
   -H "Content-Type: application/json" \
   -d '{"titular": "Ana Lima Atualizada", "saldo": 9999.99}'
 ```
 
 **DELETE — Excluir uma conta:**
 ```bash
-curl -X DELETE http://IP-DA-VM:8080/contas/3
+curl -X DELETE http://68.155.146.238:8080/contas/3
 ```
 
 ---
