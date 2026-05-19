@@ -43,6 +43,12 @@ Stack: **.NET 8** + **PostgreSQL 16**, totalmente conteinerizada com Docker, rod
 
 > Execute todos os comandos no terminal da VM do Azure (conectado via SSH)
 
+## Pré-requisitos
+- VM do Azure com AlmaLinux 10.1 já criada
+- Acesso SSH à VM
+- Docker não precisa estar instalado (este README instala)
+- Conexão de internet estável
+
 ---
 
 ### PARTE 1 — Conectar na VM do Azure
