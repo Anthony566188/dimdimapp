@@ -133,11 +133,9 @@ docker volume ls
 
 ### PARTE 6 — Subir o container do Banco de Dados
 
-> Substitua `RM000000` pelo RM do representante da equipe
-
 ```bash
 docker run -d \
-  --name db-RM000000 \
+  --name db-RM566526 \
   --network dimdim-network \
   -e POSTGRES_DB=dimdimdb \
   -e POSTGRES_USER=dimdim \
@@ -154,7 +152,7 @@ Aguarde alguns segundos e verifique se está rodando:
 docker ps
 ```
 
-Você deve ver o container `db-RM000000` com status `Up`.
+Você deve ver o container `db-RM566526` com status `Up`.
 
 ---
 
@@ -178,11 +176,9 @@ docker images
 
 ### PARTE 8 — Subir o container da Aplicação
 
-> Substitua `RM000000` pelo RM do representante da equipe
-
 ```bash
 docker run -d \
-  --name app-RM000000 \
+  --name app-RM566526 \
   --network dimdim-network \
   -e DATABASE_URL="Host=db-RM000000;Port=5432;Database=dimdimdb;Username=dimdim;Password=dimdim123" \
   -p 8080:8080 \
@@ -195,7 +191,7 @@ Verifique se está rodando:
 docker ps
 ```
 
-Você deve ver **dois containers** rodando: `app-RM000000` e `db-RM000000`.
+Você deve ver **dois containers** rodando: `app-RM566526` e `db-RM566526`.
 
 ---
 
@@ -255,7 +251,7 @@ curl -X DELETE http://IP-DA-VM:8080/contas/3
 
 ```bash
 # Acessa o container do banco
-docker container exec -it db-RM000000 psql -U dimdim -d dimdimdb
+docker container exec -it db-RM566526 psql -U dimdim -d dimdimdb
 
 # Dentro do psql, execute os SELECTs:
 SELECT * FROM "Contas";
@@ -270,12 +266,12 @@ SELECT * FROM "Contas";
 
 **Container da Aplicação:**
 ```bash
-docker container exec -it app-RM000000 sh -c "whoami && pwd && ls -la"
+docker container exec -it app-RM566526 sh -c "whoami && pwd && ls -la"
 ```
 
 **Container do Banco:**
 ```bash
-docker container exec -it db-RM000000 sh -c "whoami && pwd && ls -la"
+docker container exec -it db-RM566526 sh -c "whoami && pwd && ls -la"
 ```
 
 ---
@@ -294,7 +290,7 @@ docker container exec -it db-RM000000 sh -c "whoami && pwd && ls -la"
 | Dockerfile + imagem personalizada | `dimdimapp:latest` gerada via `docker build` |
 | Container do banco com imagem pública | `postgres:16` sem Dockerfile |
 | Execução em background | Flag `-d` em ambos os `docker run` |
-| RM no nome dos containers | `app-RM000000` e `db-RM000000` |
+| RM no nome dos containers | `app-RM566526` e `db-RM566526` |
 | Execução em nuvem | VM no Microsoft Azure |
 | How to no GitHub | Este README |
 
