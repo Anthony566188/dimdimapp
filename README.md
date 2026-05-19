@@ -180,7 +180,7 @@ docker images
 docker run -d \
   --name app-RM566526 \
   --network dimdim-network \
-  -e DATABASE_URL="Host=db-RM000000;Port=5432;Database=dimdimdb;Username=dimdim;Password=dimdim123" \
+  -e DATABASE_URL="Host=db-RM566526;Port=5432;Database=dimdimdb;Username=dimdim;Password=dimdim123" \
   -p 8080:8080 \
   dimdimapp:latest
 ```
