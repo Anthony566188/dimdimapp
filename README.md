@@ -300,10 +300,6 @@ docker container exec -it db-RM566526 sh -c "whoami && pwd && ls -la"
 
 ---
 
-## Estrutura do Repositório
-
----
-
 ## Troubleshooting
 
 **Erro ao fazer docker build: "dotnet restore failed"**
